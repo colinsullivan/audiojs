@@ -36,10 +36,7 @@
       preload: true,
       imageLocation: path + 'player-graphics.gif',
       swfLocation: path + 'audiojs.swf',
-      useFlash: (function() {
-        var a = document.createElement('audio');
-        return !(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
-      })(),
+      useFlash: !Modernizr.audio,
       hasFlash: (function() {
         if (navigator.plugins && navigator.plugins.length && navigator.plugins['Shockwave Flash']) {
           return true;
